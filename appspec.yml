@@ -9,18 +9,15 @@ hooks:
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: aws_scripts/before-install.sh
+    - location: aws_scripts/install_dependencies.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: aws_scripts/after-install.sh
+    - location: aws_scripts/start_server.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: aws_scripts/application-start.sh
+    - location: aws_scripts/stop_server.sh
       timeout: 300
       runas: root
-  ValidateService:
-    - location: aws_scripts/validate-service.sh
-      timeout: 300
-      runas: root
+
