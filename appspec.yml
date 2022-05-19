@@ -5,19 +5,19 @@ files:
     destination: /usr/local/codedeployresources
 hooks:
   ApplicationStop:
-    - location: aws/cripts/application-stop.sh
+    - location: /cripts/application-stop.sh
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: aws/scripts/install_dependencies.sh
+    - location: /scripts/install_dependencies.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: aws/scripts/start_server.sh
+    - location: /scripts/start_server.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: aws/scripts/stop_server.sh
+    - location: /scripts/stop_server.sh
       timeout: 300
       runas: root
 
