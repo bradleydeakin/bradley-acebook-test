@@ -1,3 +1,5 @@
 #!/bin/bash
-cd /home/ec2-user/acebook-test
+source /home/ec2-user/.bash_profile
+cd /var/acebook-test
+nvm install v10.13.0
 npm start
