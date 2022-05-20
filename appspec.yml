@@ -3,11 +3,6 @@ os: linux
 files:
   - source: /
     destination: /var/acebook-test
-permissions:
-  - object: /
-    pattern: "**"
-    owner: ec2-user
-    group: ec2-user
 hooks:
   AfterInstall:
     - location: aws_scripts/install_dependencies.sh
