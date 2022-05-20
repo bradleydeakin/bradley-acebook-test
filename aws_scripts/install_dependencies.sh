@@ -6,5 +6,6 @@ source /home/ec2-user/.bash_profile
 # aws s3 cp s3://bradleydeakin-acebook-test /home/ec2-user/acebook-test
 
 # mkdir /home/ec2-user/acebook-test
+nvm install v10.13.0
 cd /var/acebook-test
 npm install
