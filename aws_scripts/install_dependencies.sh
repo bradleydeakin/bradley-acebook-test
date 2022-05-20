@@ -6,5 +6,5 @@ fi
 aws s3 cp s3://bradleydeakin-acebook-test /home/ec2-user/acebook-test
 
 mkdir /home/ec2-user/acebook-test
-cd /home/ec2-user/acebook-test
+cd acebook-test
 npm install
