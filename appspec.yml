@@ -1,15 +1,26 @@
 version: 0.0
-os: linux
+os: linux 
 files:
-  - source: /
+  - source:  /
+    # The files from the unzipped application bundle will be copied here.
     destination: /var/acebook-test
+# Specifies what Unix permissions should be set for the copied files.
+# All files will be owned by the ec2-user and part of the ec2-user group.
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
 hooks:
   AfterInstall:
-    - location: aws_scripts/install_dependencies.sh
+    - location: scripts/install_dependencies.sh
       timeout: 300
+      # The script will be run as the ec2-user, which allows it to have access to any
+      # libraries that have been installed on the instance when logged in as the ec2-user (like Node for example).
+      # If this were left out, the script would be run as the root user, which won't have access to whatever was installed under the `ec2-user`.
       runas: ec2-user
   ApplicationStart:
-    - location: aws_scripts/start_server.sh
+    - location: scripts/start_server.sh
       timeout: 300
       runas: ec2-user
 
